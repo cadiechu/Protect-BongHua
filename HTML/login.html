@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../btn/btn.css">
+    <link rel="stylesheet" href="../CSS/index.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../MEDIA/favicon-bonghoa.png" type="image/x-icon">
+    <!-- Icon & Symbol & Font Google -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Lobster&family=Paytone+One&family=Sigmar+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Paytone+One&family=Sigmar+One&display=swap');
+    </style>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body class="body_image">
+    <!-- Header -->
+    <header>
+        <nav class=" header__container--navbar">
+            <div class="header">
+                <div>
+                    <a href="../index.html"><img src="../MEDIA/Daisy2.png" alt="" id="headerlogo"
+                            class="header__logo"></a>
+                </div>
+                <div class="navbar_menu">
+                    <ul>
+                        <li>
+                            <a href="../index.html"><button class="rainbow rainbow-1">Trang chủ</button></a>
+                        </li>
+                        <li class="dropdown dropdown__cart ">
+                            <a href="#"><button class="rainbow rainbow-1 dropbtn"> Sản phẩm
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="../HTML/gift.html">Hoa tặng ngày lễ</a>
+                                    <a href="../HTML/congratulation.html">Hoa chúc mừng</a>
+                                    <a href="../HTML/display.html">Hoa tiền & giỏ quà</a>
+                                    <a href="../HTML/sadness.html">Hoa chia buồn</a>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"><button class="rainbow rainbow-1 dropbtn">Dịch vụ</button>
+                                <div class="dropdown-content">
+                                    <a href="../HTML/decord.html">Trang trí theo sự kiện</a>
+                                    <a href="../HTML/request.html">Hoa theo yêu cầu</a>
+                                    <a href="../HTML/plant.HTML">Cây cảnh</a>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../HTML/flowermain.html"><button class="rainbow rainbow-1 ">Ý nghĩa bông
+                                    hoa</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../HTML/login.html"><button class="rainbow rainbow-1 dropbtn ">Login</button></a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header End -->
+    <!-- Form Login -->
+    <div class="form__login--signup">
+        <form action="">
+            <h1>Đăng nhập</h1>
+            <div class="form__info">
+                <div class="form__detail">
+                    <label for="username">Tên đăng nhập:</label> <br>
+                    <input type="text" id="username">
+                </div>
+                <div class="form__detail">
+                    <label for="password">Mật khẩu:</label> <br>
+                    <input type="password" id="password">
+                </div>
+                <button class="login__btn rainbow rainbow-4 " onclick="getLogin(event)">Đăng nhập</button>
+            </div>
+            <div class="form__signup">
+                <p>Bạn chưa có tài khoản? Hãy nhấn
+                    <a class="rainbow-4 " href="./signup.html">
+                        Đăng ký
+                    </a>
+                    để tạo tài khoản để trở thành 1 thành viên
+                    của Daisy Floral.
+                </p>
+            </div>
+        </form>
+    </div>
+    <script>
+        function getLogin(e) {
+            e.preventDefault();
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].username == username && users[i].password == password) {
+                    console.log("Đăng nhập thành công");
+                    localStorage.setItem("checkLogin", users[i].idUser)
+                    window.location.href = "../index.html";
+                    return;
+                }
+            }
+            console.log("Tài khoản không tồn tại hoặc sai mật khẩu!");
+        }
+    </script>
+
+</body>
+
+</html>

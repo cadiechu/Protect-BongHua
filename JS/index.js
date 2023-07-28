@@ -14,14 +14,12 @@ let listBanners = [
 let count = 0;
 let imageInterval = function imageNext() {
     count++;
-    console.log(count);
     document.getElementById("listimg").src = listBanners[count];
     if (count == 9) {
         count = -1;
     }
 }
 function imageBack() {
-    console.log(count);
     document.getElementById("listimg").src = listBanners[count];
     if (count == 0) {
         count = 10;
@@ -30,7 +28,7 @@ function imageBack() {
 }
 setInterval(() => {
     imageInterval();
-}, 3000)
+}, 4000)
 
 
         // renderListImages();
